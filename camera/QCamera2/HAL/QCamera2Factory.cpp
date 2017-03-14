@@ -166,6 +166,7 @@ int QCamera2Factory::cameraDeviceOpen(int camera_id,
                     struct hw_device_t **hw_device)
 {
     int rc = NO_ERROR;
+    int cameraretry = 0;
 
     android::Mutex::Autolock lock(gCameraWrapperLock);
 
@@ -182,11 +183,22 @@ int QCamera2Factory::cameraDeviceOpen(int camera_id,
     }
 
     QCamera2HardwareInterface *hw = new QCamera2HardwareInterface(camera_id);
+
     if (!hw) {
         ALOGE("Allocation of hardware interface failed");
         return NO_MEMORY;
     }
-    rc = hw->openCamera(hw_device);
+
+    while (cameraretry < 3) {
+        rc = hw->openCamera(hw_device);
+        if (rc == NO_ERROR)
+            break;
+
+        cameraretry++;
+        ALOGV("%s: open failed - retrying attempt %d",__FUNCTION__, cameraretry);
+        sleep(2);
+    }
+
     if (rc != NO_ERROR) {
         delete hw;
     }
