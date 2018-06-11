@@ -14,7 +14,7 @@
     "remote" : "github"
   },
   {
-    "repository" : "vendor_oneplus",
-    "target_path": "vendor/oneplus"
+    "repository" : "vendor_oneplus_bacon",
+    "target_path": "vendor/oneplus/bacon"
   }   
 ]
