@@ -295,7 +295,6 @@ PRODUCT_PACKAGES += \
     init.qcom.power.rc \
     init.qcom.usb.rc \
     init.recovery.bacon.rc \
-    libinit_bacon \
     ueventd.bacon.rc
 
 PRODUCT_PACKAGES += \
