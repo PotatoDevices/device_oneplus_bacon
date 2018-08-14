@@ -414,7 +414,6 @@ service hci_attach /system/vendor/bin/sh /system/etc/init.qcom.bt.sh
     class late_start
     user bluetooth
     group bluetooth net_bt_admin oem_2950 diag radio
-    seclabel u:r:hci_attach:s0
     disabled
     oneshot
 
