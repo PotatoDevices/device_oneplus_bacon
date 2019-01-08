@@ -1,5 +1,6 @@
 /*
- * Copyright (c) 2019 The Potato Open Sauce Project
+ * Copyright (c) 2018 The LineageOS Project
+ *               2019 The Potato Open Sauce Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -28,9 +29,7 @@ public class BootCompletedReceiver extends BroadcastReceiver {
 
     @Override
     public void onReceive(final Context context, Intent intent) {
-        if (Utils.isDozeEnabled(context) && Utils.sensorsEnabled(context)) {
-            if (DEBUG) Log.d(TAG, "Starting service");
-            Utils.startService(context);
-        }
+        if (DEBUG) Log.d(TAG, "Received boot completed intent");
+        Utils.checkDozeService(context);
     }
 }
