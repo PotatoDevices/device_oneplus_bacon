@@ -14,10 +14,6 @@
 # limitations under the License.
 #
 
-ifneq ($(QCPATH),)
-$(call inherit-product-if-exists, $(QCPATH)/common/config/device-vendor.mk)
-endif
-
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 
@@ -113,6 +109,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Health
 PRODUCT_PACKAGES += \
     android.hardware.health@1.0-impl
+
 # HWUI
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.hwui.texture_cache_size=72 \
@@ -239,10 +236,6 @@ PRODUCT_PACKAGES += \
     libtinyxml \
     libxml2
 
-# Music
-PRODUCT_PACKAGES += \
-    Phonograph
-
 # NFC
 ifeq ($(TARGET_BUILD_VARIANT),user)
     NFCEE_ACCESS_PATH := $(LOCAL_PATH)/configs/nfcee_access.xml
@@ -363,10 +356,6 @@ PRODUCT_PACKAGES += \
 
 # Call the proprietary setup
 $(call inherit-product-if-exists, vendor/oneplus/bacon/bacon-vendor.mk)
-
-ifneq ($(QCPATH),)
-$(call inherit-product-if-exists, $(QCPATH)/prebuilt_HY11/target/product/msm8974/prebuilt.mk)
-endif
 
 # Doze
 PRODUCT_PACKAGES += \
