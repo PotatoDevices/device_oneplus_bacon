@@ -1,10 +1,5 @@
-
-
-
-
-
 # examine battery state
-# for CMHardwareService access to TapToWake
+allow system_server proc:file { getattr read open };
 allow system_server proc_touchpanel:dir { search };
 allow system_server proc_touchpanel:file rw_file_perms;
 allow system_server self:socket ioctl;

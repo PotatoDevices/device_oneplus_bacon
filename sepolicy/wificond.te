@@ -1,0 +1,3 @@
+#============= wificond ==============
+allow wificond wifi_data_file:dir { add_name search write };
+allow wificond wifi_data_file:file { create open read setattr write };

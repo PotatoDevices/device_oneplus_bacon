@@ -1,0 +1,3 @@
+#============= charger ==============
+allow charger sysfs_battery_supply:file { read open };
+allow charger sysfs_usb_supply:file { read open };

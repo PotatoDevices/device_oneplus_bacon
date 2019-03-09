@@ -1,2 +1,4 @@
 #============= wcnss_service ==============
+allow wcnss_service serialno_prop:file { read open getattr };
 allow wcnss_service wifi_prop:property_service set;
+allow wcnss_service wifi_vendor_data_file:lnk_file read;
