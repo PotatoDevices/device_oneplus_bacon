@@ -1,30 +1,30 @@
-# NV backup partitions
-/dev/block/platform/msm_sdcc\.1/by-name/oppodycnvbk     u:object_r:nvbackup_block_device:s0
-/dev/block/platform/msm_sdcc\.1/by-name/oppostanvbk     u:object_r:nvbackup_block_device:s0
 
-# Persist filesystem
-/dev/block/platform/msm_sdcc\.1/by-name/persist         u:object_r:persist_block_device:s0
 
-# Reserve4 filesystem for encryption
-/dev/block/platform/msm_sdcc\.1/by-name/reserve4        u:object_r:reserve4_block_device:s0
 
-# Old camera socket
-/data/misc/camera/cam_socket1                           u:object_r:camera_socket:s0
-/data/misc/camera/cam_socket2                           u:object_r:camera_socket:s0
+
+
+
+
 
 # Bluetooth
-/system/bin/hci_qcomm_init                              u:object_r:hci_attach_exec:s0
-
+# Camera
+# NV backup partitions
+# Old camera socket
+# Persist filesystem
+# Reserve4 filesystem for encryption
+# audiod
 # gpuclk
+# reset_count
+/(vendor|system/vendor)/bin/hw/android\.hardware\.camera\.provider@2\.4-service.bacon          u:object_r:hal_camera_default_exec:s0
+/data/cam_socket.*                            u:object_r:camera_socket:s0
+/data/misc/camera/cam_socket1                           u:object_r:camera_socket:s0
+/data/misc/camera/cam_socket2                           u:object_r:camera_socket:s0
+/dev/block/platform/msm_sdcc\.1/by-name/oppodycnvbk     u:object_r:nvbackup_block_device:s0
+/dev/block/platform/msm_sdcc\.1/by-name/oppostanvbk     u:object_r:nvbackup_block_device:s0
+/dev/block/platform/msm_sdcc\.1/by-name/persist         u:object_r:persist_block_device:s0
+/dev/block/platform/msm_sdcc\.1/by-name/reserve4        u:object_r:reserve4_block_device:s0
 /sys/devices/fdb00000\.qcom,kgsl-3d0/kgsl/kgsl-3d0/gpuclk        u:object_r:sysfs_thermal:s0
 /sys/devices/fdb00000\.qcom,kgsl-3d0/kgsl/kgsl-3d0/max_gpuclk    u:object_r:sysfs_thermal:s0
-
-# reset_count
 /sys/devices/fdb00000\.qcom,kgsl-3d0/kgsl/kgsl-3d0/reset_count   u:object_r:sysfs_thermal:s0
-
-# Camera
-/data/cam_socket.*                            u:object_r:camera_socket:s0
-/(vendor|system/vendor)/bin/hw/android\.hardware\.camera\.provider@2\.4-service.bacon          u:object_r:hal_camera_default_exec:s0
-
-# audiod
 /system/bin/audiod                            u:object_r:audiod_exec:s0
+/system/bin/hci_qcomm_init                              u:object_r:hci_attach_exec:s0

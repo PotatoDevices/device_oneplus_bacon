@@ -1,7 +1,6 @@
+
+
 #============= btnvtool ==============
-
-init_daemon_domain(btnvtool)
-
 allow btnvtool debug_prop:file { getattr open read };
 allow btnvtool device:dir search;
 allow btnvtool init:fd use;
@@ -17,3 +16,4 @@ allow btnvtool self:lnk_file read;
 allow btnvtool system_file:dir getattr;
 allow btnvtool system_file:file { getattr open read };
 allow btnvtool vendor_file:dir getattr;
+init_daemon_domain(btnvtool)

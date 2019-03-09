@@ -1,17 +1,17 @@
-qmux_socket(system_server)
 
-# for CMHardwareService access to TapToWake
-allow system_server proc_touchpanel:file rw_file_perms;
-allow system_server proc_touchpanel:dir { search };
+
+
+
 
 # examine battery state
-r_dir_file(system_server, sysfs_usb_supply);
-
+# for CMHardwareService access to TapToWake
+allow system_server proc_touchpanel:dir { search };
+allow system_server proc_touchpanel:file rw_file_perms;
 allow system_server self:socket ioctl;
-allow system_server sensors_device:chr_file getattr;
-
-allow system_server socket_device:sock_file write;
-
-allow system_server sensors_socket:sock_file write;
 allow system_server sensors:unix_stream_socket connectto;
+allow system_server sensors_device:chr_file getattr;
+allow system_server sensors_socket:sock_file write;
+allow system_server socket_device:sock_file write;
 dontaudit system_server dalvikcache_data_file:file { execute write };
+qmux_socket(system_server)
+r_dir_file(system_server, sysfs_usb_supply);
