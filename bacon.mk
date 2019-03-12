@@ -19,9 +19,10 @@ DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 
 # AOSP Packages
 PRODUCT_PACKAGES += \
-    Launcher3 \
     messaging \
     Terminal
+
+LAWNCHAIR_OPTOUT := true
 
 # ANT+
 #PRODUCT_PACKAGES += \
