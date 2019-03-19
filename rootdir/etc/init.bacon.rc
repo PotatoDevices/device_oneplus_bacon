@@ -19,6 +19,12 @@ import /vendor/etc/init/hw/init.qcom-common.rc
 on fs
     mount_all /vendor/etc/fstab.bacon
 
+on post-fs
+
+    # Avoid USB crash
+    setprop persist.adb.nonblocking_ffs 0
+    setprop ro.adb.nonblocking_ffs 0
+
 on post-fs-data
     # Torch
     chown system camera /sys/class/leds/torch-light/brightness
