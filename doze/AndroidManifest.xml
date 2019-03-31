@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.slimroms.doze.oneplus"
+    package="co.potatoproject.settings.doze"
     android:versionCode="1"
     android:versionName="1.0"
     android:sharedUserId="android.uid.system">
@@ -8,41 +8,31 @@
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
     <uses-permission android:name="android.permission.WAKE_LOCK" />
 
+    <protected-broadcast android:name="com.android.systemui.doze.pulse" />
+
     <uses-sdk
-        android:minSdkVersion="26"
-        android:targetSdkVersion="26"/>
+        android:minSdkVersion="24"
+        android:targetSdkVersion="24"/>
 
     <application
-        android:label="OnePlusDoze"
+        android:label="@string/device_settings_app_name"
         android:persistent="true">
 
-        <receiver android:name="com.slimroms.doze.oneplus.BootCompletedReceiver">
+        <receiver android:name=".BootCompletedReceiver">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </receiver>
 
-        <service android:name="com.slimroms.doze.oneplus.OnePlusDozeService"
+        <service android:name=".DozeService"
                  android:permission="OnePlusDozeService">
         </service>
 
         <activity
-            android:name=".WakeUpGestureSettings"
-            android:label="@string/screen_gestures_panel_title"
-            android:theme="@android:style/Theme.DeviceDefault.Settings">
-            <intent-filter>
-                <action android:name="com.android.settings.action.EXTRA_SETTINGS" />
-            </intent-filter>
-            <meta-data
-                android:name="com.android.settings.category"
-                android:value="com.android.settings.category.ia.display" />
-            <meta-data android:name="com.android.settings.summary"
-                android:resource="@string/screen_gestures_panel_summary" />
-            <meta-data
-                android:name="com.android.settings.icon"
-                android:resource="@drawable/ic_settings_gestures" />
-        </activity>
+            android:name=".DozeSettingsActivity"
+            android:label="@string/ambient_display_title"
+            android:theme="@style/Theme.Main" />
 
     </application>
 </manifest>
