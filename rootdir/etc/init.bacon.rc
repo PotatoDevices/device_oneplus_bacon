@@ -16,6 +16,9 @@
 
 import /vendor/etc/init/hw/init.qcom-common.rc
 
+on init
+    export LD_PRELOAD /system/lib/libboringssl-compat.so
+
 on fs
     mount_all /vendor/etc/fstab.bacon
 
