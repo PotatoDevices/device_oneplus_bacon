@@ -23,6 +23,7 @@ PRODUCT_PACKAGES += \
     Terminal
 
 LAWNCHAIR_OPTOUT := true
+SOUNDPICKER_10 := true
 
 # ANT+
 #PRODUCT_PACKAGES += \
